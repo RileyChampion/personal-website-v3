@@ -1,5 +1,7 @@
-import Image from "next/image";
 import { Borel } from "next/font/google";
+import { SiGithub, SiLetterboxd } from "react-icons/si";
+import { FaLinkedin } from "react-icons/fa";
+import ThemeToggle from "./ui/ThemeToggle";
 
 const borel = Borel({
   variable: "--font-borel",
@@ -10,69 +12,100 @@ const borel = Borel({
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <h2 className={`${borel.className}`}>Welcome</h2>
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
+    <div className="lg:flex lg:justify-between lg:gap-3 px-10 py-12 lg:py-0">
+      <header className="flex flex-col justify-between lg:max-h-screen lg:py-8 lg:sticky lg:top-0 min-w-1/2">
+        <div className="flex justify-left flex-col">
+          <h1 className="text-primary text-4xl font-bold">
+            <a href="#about">Riley Champion</a>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
+          <h2 className="text-secondary text-2xl">Software Engineer</h2>
+          <p className="text-muted">Full Stack Developer | Board Game Enthusiast | Niko&apos;s Dad</p>
+        </div>
+        <nav>
+          <ul className="flex flex-col gap-6 mt-4">
+            <li>
+              <a href="#experience" className="text-primary hover:text-action-hover">Experience</a>
+            </li>
+            <li>
+              <a href="#projects" className="text-primary hover:text-action-hover">Projects</a>
+            </li>
+            <li>
+              <a href="#current-fixations" className="text-primary hover:text-action-hover">Current Fixations</a>
+            </li>
+          </ul>
+        </nav>
+        <div className="flex flex-row align-middle items-start mt-4 gap-2">
+          <ThemeToggle />
+          <div className="bg-transparent text-primary p-2 rounded-md border-2 border-transparent cursor-pointer hover:border-border hover:bg-raised active:bg-selected active:border-border-strong transition-colors">
             <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              href="https://github.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              className="text-primary"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
+              <SiGithub size={23} />
+            </a>
+          </div>
+          <div className="bg-transparent text-primary p-2 rounded-md border-2 border-transparent cursor-pointer hover:border-border hover:bg-raised transition-colors">
             <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              href="https://www.linkedin.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="text-primary"
             >
-              Learning
-            </a>{" "}
-            center.
+              <FaLinkedin size={23} />
+            </a>
+          </div>
+          <div className="bg-transparent text-primary p-2 rounded-md border-2 border-transparent cursor-pointer hover:border-border hover:bg-raised transition-colors">
+            <a
+              href="https://letterboxd.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Letterboxd"
+              className="text-primary"
+            >
+              <SiLetterboxd size={23} />
+            </a>
+          </div>
+        </div>
+      </header>
+      <div className="min-h-screen min-w-1/2 lg:py-8 py-8">
+        <div>
+          <h1 className="text-primary text-4xl font-bold mb-4">My Projects</h1>
+          <p className="text-primary text-lg mb-4">
+            Welcome to my personal website! Here, you can explore my projects, experience, and current fixations. I&apos;m a software engineer with a passion for building innovative solutions and creating meaningful experiences through technology.
+          </p>
+          <p className="text-primary text-lg mb-4">
+            Feel free to browse through my work and reach out if you&apos;d like to collaborate or learn more about what I do.
+          </p>
+          <p className="text-primary text-lg mb-4">
+            Thank you for visiting, and I hope you enjoy exploring my projects!
+          </p>
+          <p className="text-primary text-lg mb-4">
+            If you have any questions or feedback, feel free to reach out!
+          </p>
+          <p className="text-primary text-lg mb-4">
+            You can also connect with me on social media or check out my GitHub for more of my work.
+          </p>
+          <p className="text-primary text-lg mb-4">
+            I&apos;m always open to new opportunities and collaborations, so don&apos;t hesitate to get in touch!
+          </p>
+          <p className="text-primary text-lg mb-4">
+            Thank you for taking the time to visit my website, and I hope you find it informative and engaging!
+          </p>
+          <p className="text-primary text-lg mb-4">
+            I&apos;m constantly learning and growing as a developer, and I look forward to sharing my journey with you through this website.
+          </p>
+          <p className="text-primary text-lg mb-4">
+            Stay tuned for updates on my latest projects, experiences, and insights into the world of software engineering!
+          </p>
+          <p className="text-primary text-lg mb-4">
+            Thank you again for visiting, and I hope you enjoy exploring my personal website!
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </div>
     </div>
   );
 }

@@ -1,26 +1,224 @@
 @import "tailwindcss";
 
+/* ============================================================
+   Forest / Earth — final tokens
+   Figma path shown after each token, e.g.  bg/base
+   Ratios are computed, not estimated. Measured against that
+   theme's bg/base unless noted otherwise.
+
+   Portfolio build: gold is the action colour.
+   For dense app UI, set --action-default to #FAFAFA (dark) /
+   #192A1E (light) and --action-on-action to the inverse, so
+   gold drops back to the attention layer only.
+   ============================================================ */
+
+/* ---------------- DARK (default) ---------------- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+
+  /* bg/ */
+  --bg-base:              #192A1E;   /* bg/base                          */
+  --bg-raised:            #223528;   /* bg/raised    cards               */
+  --bg-selected:          #2A3D2C;   /* bg/selected  active row          */
+  --bg-sage:              #939E85;   /* bg/sage      panel · 5.37:1      */
+  --bg-scrim:             rgba(9, 16, 11, 0.72);   /* bg/scrim           */
+
+  /* border/ */
+  --border-default:       #2E4234;   /* border/default                   */
+  --border-strong:        #3E5645;   /* border/strong                    */
+  --border-focus:         #C8A56B;   /* border/focus  6.51:1             */
+
+  /* text/ */
+  --text-primary:         #FAFAFA;   /* text/primary   14.46:1  AAA      */
+  --text-secondary:       #E8E8E8;   /* text/secondary 12.32:1  AAA      */
+  --text-muted:           #8D9880;   /* text/muted      4.99:1  AA       */
+  --text-inverse:         #192A1E;   /* text/inverse   on light fills    */
+  --text-on-sage:         #192A1E;   /* text/on-sage    5.37:1  AA       */
+
+  /* action/ — primary interactive fill */
+  --action-default:       #C8A56B;   /* action/default  shape 6.51:1     */
+  --action-hover:         #D9B87F;
+  --action-active:        #B08F55;
+  --action-on-action:     #241C0B;   /* label on fill   7.26:1  AAA      */
+
+  /* attention/ — links, rails, badges */
+  --attention-text:       #C8A56B;   /* attention/text        6.51:1     */
+  --attention-mark:       #C8A56B;   /* attention/mark   underlines      */
+  --attention-surface:    #332813;   /* attention/surface                */
+  --attention-border:     #6B5527;   /* attention/border                 */
+  --attention-on-surface: #D9B87F;   /* attention/on-surface  7.64:1     */
+
+
+  /* feedback/ */
+  --feedback-success:         #8CB36B;   /* 6.31:1 */
+  --feedback-success-surface: #24361C;
+  --feedback-success-border:  #3E5B2C;
+  --feedback-warning:         #E8A05A;   /* 6.91:1 */
+  --feedback-warning-surface: #3B2814;
+  --feedback-warning-border:  #77502A;
+  --feedback-danger:          #DB8A72;   /* 5.67:1 */
+  --feedback-danger-surface:  #3A211A;
+  --feedback-danger-border:   #6B3E30;
 }
 
+/* ---------------- LIGHT ---------------- */
+[data-theme="light"] {
+
+  /* bg/ */
+  --bg-base:              #F2F4EC;
+  --bg-raised:            #FBFCF8;
+  --bg-selected:          #E9EDE1;
+  --bg-sage:              #DDE2D4;   /* only 1.19:1 vs base — needs a border */
+  --bg-scrim:             rgba(25, 42, 30, 0.45);
+
+  /* border/ */
+  --border-default:       #D6DBCB;
+  --border-strong:        #C3CBB6;
+  --border-focus:         #8A6722;   /* 4.68:1 */
+
+  /* text/ */
+  --text-primary:         #192A1E;   /* 13.60:1  AAA */
+  --text-secondary:       #3D5044;   /*  7.79:1  AAA */
+  --text-muted:           #5F6B57;   /*  5.08:1  AA  */
+  --text-inverse:         #FBFCF8;
+  --text-on-sage:         #192A1E;   /* 11.43:1  AAA */
+
+  /* action/ */
+  --action-default:       #8A6722;   /* shape 4.68:1 */
+  --action-hover:         #7A5A1E;
+  --action-active:        #5F4615;
+  --action-on-action:     #FFFFFF;   /* label 5.19:1  AA */
+
+  /* attention/ */
+  --attention-text:       #7A5A1E;   /* 5.72:1 */
+  --attention-mark:       #C8A56B;   /* identical to dark — decorative   */
+  --attention-surface:    #F7EDD6;
+  --attention-border:     #E0C48A;
+  --attention-on-surface: #7A5410;   /* 6.10:1 */
+
+
+  /* feedback/ */
+  --feedback-success:         #3E6B22;   /* 5.68:1 */
+  --feedback-success-surface: #E8F0DE;
+  --feedback-success-border:  #BCD3A3;
+  --feedback-warning:         #8A4B0F;   /* 6.12:1 */
+  --feedback-warning-surface: #FBEBDA;
+  --feedback-warning-border:  #EFC79E;
+  --feedback-danger:          #9A3D28;   /* 6.16:1 */
+  --feedback-danger-surface:  #F8E5DE;
+  --feedback-danger-border:   #E8B7A6;
+}
+
+/* ============================================================
+   Tailwind utility mapping — reactive to [data-theme], values
+   stay defined once above; this just exposes them as utilities.
+   ============================================================ */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* bg/ */
+  --color-base:              var(--bg-base);
+  --color-raised:            var(--bg-raised);
+  --color-selected:          var(--bg-selected);
+  --color-sage:              var(--bg-sage);
+
+  /* border/ */
+  --color-border:            var(--border-default);
+  --color-border-strong:     var(--border-strong);
+  --color-focus:             var(--border-focus);
+
+  /* text/ */
+  --color-primary:           var(--text-primary);
+  --color-secondary:         var(--text-secondary);
+  --color-muted:             var(--text-muted);
+  --color-inverse:           var(--text-inverse);
+  --color-on-sage:           var(--text-on-sage);
+
+  /* action/ */
+  --color-action:            var(--action-default);
+  --color-action-hover:      var(--action-hover);
+  --color-action-active:     var(--action-active);
+  --color-on-action:         var(--action-on-action);
+
+  /* attention/ */
+  --color-attention:         var(--attention-text);
+  --color-mark:              var(--attention-mark);
+  --color-attention-surface: var(--attention-surface);
+  --color-attention-border:  var(--attention-border);
+  --color-on-attention:      var(--attention-on-surface);
+
+  /* feedback/ */
+  --color-success:           var(--feedback-success);
+  --color-success-surface:   var(--feedback-success-surface);
+  --color-success-border:    var(--feedback-success-border);
+  --color-warning:           var(--feedback-warning);
+  --color-warning-surface:   var(--feedback-warning-surface);
+  --color-warning-border:    var(--feedback-warning-border);
+  --color-danger:            var(--feedback-danger);
+  --color-danger-surface:    var(--feedback-danger-surface);
+  --color-danger-border:     var(--feedback-danger-border);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ============================================================
+   Reference usage — token references only, no raw values
+   ============================================================ */
+
+body { background: var(--bg-base); color: var(--text-primary); }
+
+.card {
+  background: var(--bg-raised);
+  border: 1px solid var(--border-default);
+  border-radius: 12px;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.panel-sage {
+  background: var(--bg-sage);
+  color: var(--text-on-sage);
+  border: 1px solid var(--border-default);   /* needed in light mode */
+  border-radius: 10px;
+}
+
+.btn-primary {
+  background: var(--action-default);
+  color: var(--action-on-action);
+  border: none;
+}
+.btn-primary:hover  { background: var(--action-hover); }
+.btn-primary:active { background: var(--action-active); }
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-strong);
+}
+
+/* a { color: var(--attention-text); text-decoration-color: var(--attention-mark); } */
+
+.tab--active   { border-bottom: 2px solid var(--attention-mark); }
+.row--selected { border-left: 3px solid var(--attention-mark); background: var(--bg-selected); }
+
+.badge {
+  background: var(--attention-surface);
+  color: var(--attention-on-surface);
+  border: 1px solid var(--attention-border);
+}
+
+.toggle-theme-button {
+  background: var(--bg-base);
+  color: var(--text-primary);
+  border: 1px solid transparent;
+  padding: 0.5rem;
+}
+.toggle-theme-button:hover {
+  background: var(--bg-raised);
+  border: 1px solid var(--border-default);
+  border-radius: 5px;
+}
+.toggle-theme-button:active {
+  background: var(--bg-selected);
+  border: 1px solid var(--border-strong);
+  border-radius: 5px;
+}
+
+
+:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
 }
