@@ -32,7 +32,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${borel.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="flex flex-col">
+      <body>
         <div className="noise-u-shape" aria-hidden="true" />
         <ThemeProvider attribute="data-theme" defaultTheme="dark">
           {children}
