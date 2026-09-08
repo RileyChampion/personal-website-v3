@@ -230,11 +230,14 @@ body { background: var(--bg-base); color: var(--text-primary); }
    Recolored per-theme via background-color + mask-image.
    ============================================================ */
 :root {
-  --noise-opacity: 0.2;
+  --noise-opacity: 0.15;
 }
 
 [data-theme="light"] {
-  --noise-opacity: 0.4;
+  --noise-opacity: 0.15;
+  .noise-u-shape {
+    mix-blend-mode: darken;
+  }
 }
 
 .noise-u-shape {
@@ -250,6 +253,7 @@ body { background: var(--bg-base); color: var(--text-primary); }
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-size: 100% 100%;
   mask-image: url("/noise-radial-mask.png");
+  mix-blend-mode: soft-light;
   mask-repeat: no-repeat;
   mask-size: 100% 100%;
 }
