@@ -230,7 +230,7 @@ body { background: var(--bg-base); color: var(--text-primary); }
    Recolored per-theme via background-color + mask-image.
    ============================================================ */
 :root {
-  --noise-opacity: 0.4;
+  --noise-opacity: 0.28;
 }
 
 [data-theme="light"] {
