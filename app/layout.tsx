@@ -33,6 +33,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
     >
       <body className="flex flex-col">
+        <div className="noise-u-shape" aria-hidden="true" />
         <ThemeProvider attribute="data-theme" defaultTheme="dark">
           {children}
         </ThemeProvider>

@@ -222,3 +222,34 @@ body { background: var(--bg-base); color: var(--text-primary); }
   outline: 2px solid var(--border-focus);
   outline-offset: 2px;
 }
+
+/* ============================================================
+   Decorative noise accent — one pre-composited PNG (public/noise-radial-mask.png)
+   that bakes in both the sand-grain texture and its radial density (clear
+   center, offset toward the top, grainy outer ring toward the edges/corners).
+   Recolored per-theme via background-color + mask-image.
+   ============================================================ */
+:root {
+  --noise-opacity: 0.4;
+}
+
+[data-theme="light"] {
+  --noise-opacity: 0.4;
+}
+
+.noise-u-shape {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  opacity: var(--noise-opacity);
+  background-color: var(--text-primary);
+  -webkit-mask-image: url("/noise-radial-mask.png");
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-image: url("/noise-radial-mask.png");
+  mask-repeat: no-repeat;
+  mask-size: 100% 100%;
+}
