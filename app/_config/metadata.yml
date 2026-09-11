@@ -1,0 +1,31 @@
+experience:
+  - start: June 2025
+    end: Present
+    title: Software Development Engineer II
+    company: Esri
+    location: Redlands, CA
+    shortDescription: Putting spatial data onto maps.
+  - start: July 2024
+    end: June 2025
+    shortDescription: Contract ended with JPMorgan Chase.
+  - start: July 2023
+    end: July 2024
+    title: Software Engineer II
+    company: JPMorgan Chase
+    location: New York, NY
+    shortDescription: Acquisition transition, deployment orchestration and validation.
+  - start: August 2022
+    end: July 2023
+    title: Software Engineer I
+    company: First Republic Bank
+    location: New York, NY
+    shortDescription: CLI dev tools for to improve developer experience.
+  - start: June 2022
+    end: null
+    shortDescription: Graduated from UCIrvine
+  - start: March 2021
+    end: June 2022
+    title: Student Full Stack Developer
+    company: UCIrvine Student Affairs IT
+    location: Irvine, CA
+    shortDescription: Event management and registration portal for graduation ceremony.

@@ -1,7 +1,13 @@
+import fs from "fs";
+import YAML from "yaml";
 import { Borel } from "next/font/google";
 import { SiGithub, SiLetterboxd } from "react-icons/si";
 import { FaLinkedin } from "react-icons/fa";
-import ThemeToggle from "./ui/ThemeToggle";
+import { ExternalLink } from "lucide-react";
+import ThemeToggle from "./ui/Theme/ThemeToggle";
+import { ExperienceList } from "./ui/Experience/types/types";
+import ExperienceItem from "./ui/Experience/ExperienceItem";
+import ExperienceGapItem from "./ui/Experience/ExperienceGapItem";
 
 const borel = Borel({
   variable: "--font-borel",
@@ -11,6 +17,11 @@ const borel = Borel({
 });
 
 export default function Home() {
+
+  const metadata = fs.readFileSync("./app/_config/metadata.yml", "utf8");
+
+  const experienceList: ExperienceList = YAML.parse(metadata)
+
   return (
     <div className="lg:flex lg:justify-between lg:gap-3 px-8 lg:px-16 py-12 lg:py-0">
       <header className="flex flex-col justify-between lg:max-h-screen lg:py-8 lg:sticky lg:top-0 min-w-1/2">
@@ -72,7 +83,7 @@ export default function Home() {
         </div>
       </header>
       <div className="min-h-screen min-w-1/2 lg:py-8 py-8">
-        <div id="about">
+        <section id="about" className="mb-4">
           <h1 className="text-primary text-2xl font-extrabold mb-4">ABOUT</h1>
           <p className="text-primary text-md mb-4">
             I&apos;m a software engineer at ESRI, working on Feature Services — the layer that gets spatial data out of wherever it actually lives and into a map you can pan around. Some of that data sits in stores we host. Some of it stays in a customer&apos;s own warehouse and has to be read in place. Making both feel like the same map is most of the job.
@@ -92,19 +103,34 @@ export default function Home() {
           <p className="text-primary text-md mb-4">
             What followed was several months of applications that mostly went nowhere, and eventually the decision to move home to Southern California. Esri came out of that. I probably wouldn&apos;t have found this job if the last one hadn&apos;t ended, which is an annoying thing to be true.
           </p>
-          <p className="text-primary text-md mb-4">
+          <p className="text-primary text-md">
             Niko takes up a reasonable percentage of my week. I&apos;m learning to draw, and I&apos;m bad at it in a way that&apos;s finally getting interesting. My partner and I go looking for things to do around SoCal most weekends. I&apos;m four years into a campaign with my friends and threatening to run one of my own. And I&apos;m getting my money&apos;s worth out of a Regal Unlimited membership — if it&apos;s in theaters and it&apos;s strange, I&apos;ve probably seen it.
           </p>
-        </div>
-        <div id="experience">
+        </section>
+        <section id="experience" className="mb-4">
           <h1 className="text-primary text-2xl font-extrabold mb-4">EXPERIENCE</h1>
-        </div>
-        <div id="projects">
+          <p className="text-attention mb-5">
+            <a className="flex" href="#about">
+              View Resume <ExternalLink size={20} className="strock-current pl-1" />
+            </a>
+          </p>
+          <div role="list" className="pl-0 ml-0">
+            {
+              experienceList.experience.map((exp, index) => (
+                "title" in exp ? (
+                  <ExperienceItem key={index} experience={exp} isFirst={index === 0} isLast={index === experienceList.experience.length - 1} />
+                ) : (
+                  <ExperienceGapItem key={index} experience={exp} />
+              )))
+            }
+          </div>
+        </section>
+        <section id="projects" className="mb-4">
           <h1 className="text-primary text-2xl font-extrabold mb-4">PROJECTS</h1>
-        </div>
-        <div id="current-fixations">
+        </section>
+        <section id="current-fixations" className="mb-4">
           <h1 className="text-primary text-2xl font-extrabold mb-4">CURRENT FIXATIONS</h1>
-        </div>
+        </section>
         <div id="copyright"></div>
       </div>
     </div>

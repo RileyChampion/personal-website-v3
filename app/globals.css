@@ -21,6 +21,7 @@
   --bg-selected:          #2A3D2C;   /* bg/selected  active row          */
   --bg-sage:              #939E85;   /* bg/sage      panel · 5.37:1      */
   --bg-scrim:             rgba(9, 16, 11, 0.72);   /* bg/scrim           */
+  --bg-inverse:           #FAFAFA;   /* bg/inverse   on light fills      */
 
   /* border/ */
   --border-default:       #2E4234;   /* border/default                   */
@@ -69,6 +70,7 @@
   --bg-selected:          #E9EDE1;
   --bg-sage:              #DDE2D4;   /* only 1.19:1 vs base — needs a border */
   --bg-scrim:             rgba(25, 42, 30, 0.45);
+  --bg-inverse:           #192A1E;
 
   /* border/ */
   --border-default:       #D6DBCB;
@@ -118,6 +120,7 @@
   --color-raised:            var(--bg-raised);
   --color-selected:          var(--bg-selected);
   --color-sage:              var(--bg-sage);
+  --color-bg-inverse:        var(--bg-inverse);
 
   /* border/ */
   --color-border:            var(--border-default);
