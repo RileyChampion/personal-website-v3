@@ -35,13 +35,13 @@ export default function Home() {
         <nav>
           <ul className="hidden lg:flex lg:flex-col lg:gap-6 lg:mt-4">
             <li>
-              <a href="#experience" className="text-primary hover:text-action-hover">Experience</a>
+              <a href="#experience" className="text-primary hover:underline hover:text-action-hover">Experience</a>
             </li>
             <li>
-              <a href="#projects" className="text-primary hover:text-action-hover">Projects</a>
+              <a href="#projects" className="text-primary hover:underline hover:text-action-hover">Projects</a>
             </li>
             <li>
-              <a href="#current-fixations" className="text-primary hover:text-action-hover">Current Fixations</a>
+              <a href="#current-fixations" className="text-primary hover:underline hover:text-action-hover">Current Fixations</a>
             </li>
           </ul>
         </nav>

@@ -15,9 +15,9 @@ export default function ExperienceItem({experience, isFirst, isLast} : Experienc
             </div>
             <div className="pb-4">
                 <p className="text-xs text-muted">{experience.start}{experience?.end ? ` — ${experience.end}` : "" }</p>
-                <p className="text-primary font-bold">{experience.title}</p>
-                <p className="text-secondary">{experience.company} · {experience.location}</p>
-                <p className="text-secondary italic">{experience.shortDescription}</p>
+                <p className="text-primary text-lg font-bold">{experience.title}</p>
+                <p className="text-secondary text-lg ">{experience.company} · {experience.location}</p>
+                <p className="text-secondary text-md italic">{experience.shortDescription}</p>
             </div>
         </div>
     );

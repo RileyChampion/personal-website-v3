@@ -12,7 +12,7 @@ export default function ExperienceGapItem({experience} : ExperienceGapProp) {
             </div>
             <div className="pb-4">
                 <p className="text-xs italic text-muted">{experience.start}{experience?.end ? ` — ${experience.end}` : "" }</p>
-                <p className="text-muted italic">{experience.shortDescription}</p>
+                <p className="text-secondary text-md italic">{experience.shortDescription}</p>
             </div>
         </div>
     );
